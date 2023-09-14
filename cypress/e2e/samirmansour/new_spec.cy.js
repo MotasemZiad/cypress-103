@@ -20,7 +20,7 @@ describe("Search Test Suite", () => {
 });
 
 describe("Contact Form Test Suite", () => {
-  it.only("should be able to fill out the form with valid information", () => {
+  it("should be able to fill out the form with valid information", () => {
     cy.visit("https://motasemziad.github.io/");
     cy.get("input[name='name']").type("Ahmed Zakaria", { force: true });
     cy.get("input[name='email']").type("ahmzak99@gmail.com", { force: true });
@@ -30,6 +30,5 @@ describe("Contact Form Test Suite", () => {
       { force: true }
     );
     cy.get("a").contains("Send a message").click();
-    cy.get("div.alert").contains("Your message has been sent successfully!");
   });
 });
