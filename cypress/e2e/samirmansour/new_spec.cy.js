@@ -14,7 +14,10 @@ describe("Search Test Suite", () => {
     cy.visit("https://samirmansour.ps");
     cy.get("li a.open-search").click();
     cy.get("div > input[name='search']").type("book{enter}");
-    cy.url().should("include", "search=book");
+    cy.url().should(
+      "eq",
+      "https://samirmansour.ps/index.php?route=product/search&search=book"
+    );
     cy.get("#products-items").children().should("have.length.at.least", 1);
   });
 });
